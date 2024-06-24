@@ -13,8 +13,7 @@ public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
         ListNode *pre = new ListNode(0, head), *slow = pre, *fast = pre;
         
-        // Move fast n steps ahead
-        for (int i = 0; i < n; ++i) {
+           for (int i = 0; i < n; ++i) {
             if (fast->next != nullptr) {
                 fast = fast->next;
             } else {
@@ -22,16 +21,13 @@ public:
             }
         }
 
-        // Move both fast and slow until fast reaches the end
-        while (fast->next != nullptr) {
+               while (fast->next != nullptr) {
             fast = fast->next;
             slow = slow->next;
         }
-        
-        // Remove the nth node from end
+       
         slow->next = slow->next->next;
         
-        // Return the head of the modified list
         ListNode* result = pre->next;
         delete pre;
         return result;
